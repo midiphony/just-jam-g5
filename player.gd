@@ -16,12 +16,16 @@ func _ready():
 		printerr("LEVEL TILEMAP HAS NOT BEEN ASSIGNED TO THE PLAYER")
 	
 	tilemap_cell_size = tilemap.tile_set.tile_size.x
+	
+	# Center player on the tile he is over
+	var current_tile_coords := get_tile_coords_from_global_position(global_position)
+	global_position = tilemap.to_global(tilemap.map_to_local(current_tile_coords))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	# Enable simple movements by uncommenting below code
-	_process_basic_movement(delta)
-	return
+	## Enable simple movements by uncommenting below code
+	#_process_basic_movement(delta)
+	#return
 	
 	# Don't process inputs if player is currently in a move sequence
 	if is_moving:
@@ -43,37 +47,93 @@ func _process(delta):
 		return
 	
 	var directions := move_skill.directions
+	if directions.size() > 0:
+		is_moving = true
+	
+	var current_tile_coords := get_tile_coords_from_global_position(global_position)
+	var original_position := global_position
+	var previous_position := global_position
+	var target_tile_coords := current_tile_coords
+	
+	
+	var tween := create_tween()
 	
 	for i in range(directions.size()):
-		print(directions[i])
+		var direction := directions[i]
+		
+		match direction:
+			MoveSkill.DIRECTION.LEFT:
+				target_tile_coords += Vector2i.LEFT
+			MoveSkill.DIRECTION.RIGHT:
+				target_tile_coords += Vector2i.RIGHT
+			MoveSkill.DIRECTION.UP:
+				target_tile_coords += Vector2i.UP
+			MoveSkill.DIRECTION.DOWN:
+				target_tile_coords += Vector2i.DOWN
+			_:
+				printerr("Unkwown MoveSkill Direction")
+		
+		var cell_type := get_cell_type(target_tile_coords)
+		var target_position = tilemap.to_global(tilemap.map_to_local(target_tile_coords))
+		
+		match cell_type:
+			CellType.VALID:
+				tween.tween_property(self, "global_position", target_position, 0.5)
+				pass
+			CellType.BLOCKER:
+				tween.set_ease(Tween.EASE_IN)
+				tween.tween_property(self, "global_position", target_position, 0.1)
+				tween.set_ease(Tween.EASE_OUT)
+				tween.tween_property(self, "global_position", previous_position, 0.1)
+				tween.tween_callback(
+					func(): global_position = original_position
+				)
+				break
+			CellType.VOID:
+				tween.tween_property(self, "global_position", target_position, 0.5)
+				tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
+				tween.tween_callback(
+					func(): 
+						global_position = original_position
+						scale = Vector2.ONE
+				)
+				break
+			_:
+				printerr("Unkwown CellType")
+				break
+		
+		previous_position = target_position
+	
+	
+	tween.tween_callback(
+		func(): is_moving = false
+	)
 	
 
 
-enum TileType { VALID, BLOCKER, VOID }
+enum CellType { VALID, BLOCKER, VOID }
 
 func get_tile_coords_from_global_position(some_global_position : Vector2) -> Vector2i:
 	return tilemap.local_to_map(tilemap.to_local(some_global_position))
 	
 
-func get_cell_type(tile_coords : Vector2i) -> TileType:
+func get_cell_type(tile_coords : Vector2i) -> CellType:
 	var tiledata : TileData = tilemap.get_cell_tile_data(0, tile_coords)
 	
 	if tiledata == null:
-		get_tree().reload_current_scene()
-		return TileType.VOID
+		return CellType.VOID
 	
 	var is_void = tiledata == null or tiledata.get_custom_data("void")
 	if is_void:
 		print("Void !")
-		get_tree().reload_current_scene()
-		return TileType.VOID
+		return CellType.VOID
 	
 	var is_blocking = tiledata.get_custom_data("blocker")
 	if is_blocking:
 		print("Blocked !")
-		return TileType.BLOCKER
+		return CellType.BLOCKER
 	
-	return TileType.VALID
+	return CellType.VALID
 
 
 # Process function to enter basic movement
