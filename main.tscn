@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://cjmwlrgvgc6im"]
+[gd_scene load_steps=5 format=3 uid="uid://cjmwlrgvgc6im"]
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
+[ext_resource type="Resource" uid="uid://dfj2tthwyvegf" path="res://moves/LeftLeft.tres" id="3_7xcfw"]
+[ext_resource type="Resource" uid="uid://bvn14altqhyvn" path="res://moves/UpUpLeftUp.tres" id="4_qyew1"]
 
 [node name="Main" type="Node2D"]
 
@@ -13,3 +15,16 @@ layer_0/tile_data = PackedInt32Array(393218, 0, 3, 393219, 0, 3, 393220, 0, 3, 3
 
 [node name="Player" parent="." node_paths=PackedStringArray("tilemap") instance=ExtResource("2_p74tl")]
 tilemap = NodePath("../TileMap")
+move_skill_key_left = ExtResource("3_7xcfw")
+move_skill_key_right = ExtResource("4_qyew1")
+
+[node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+visible = false
+remote_path = NodePath("../../PlayerCamera")
+update_position = false
+update_rotation = false
+update_scale = false
+
+[node name="PlayerCamera" type="Camera2D" parent="."]
+position = Vector2(224, 160)
+position_smoothing_enabled = true

@@ -1,12 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://c46aunm5hx3d"]
 
-[ext_resource type="Script" path="res://abstract_platformer_tuto/Player.gd" id="1_ifrjm"]
+[ext_resource type="Script" path="res://player.gd" id="1_ifrjm"]
 [ext_resource type="Texture2D" uid="uid://bs6ufr2b6q26g" path="res://icon.svg" id="2_he0g1"]
 
-[node name="Player" type="Node2D" node_paths=PackedStringArray("tilemap")]
+[node name="Player" type="Node2D"]
 position = Vector2(224, 160)
 script = ExtResource("1_ifrjm")
-tilemap = NodePath("")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
