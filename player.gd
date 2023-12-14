@@ -14,6 +14,10 @@ var tilemap_cell_size : int
 @export var move_skill_key_left : MoveSkill
 @export var move_skill_key_right : MoveSkill
 
+@onready var blocked_sound := $BlockedSound
+@onready var falling_sound := $FallingSound
+@onready var moving_sound := $MovingSound
+
 var is_move_skill_left_unlocked := false
 signal move_skill_left_unlocked
 
@@ -100,6 +104,10 @@ func _process(delta):
 		var cell_type := get_cell_type(target_tile_coords)
 		var target_position = tilemap.to_global(tilemap.map_to_local(target_tile_coords))
 		
+		tween.tween_callback(
+				func(): moving_sound.play()
+			)
+		
 		match cell_type:
 			CellType.VALID:
 				tween.tween_property(self, "global_position", target_position, move_step_duration)
@@ -109,6 +117,7 @@ func _process(delta):
 				tween.tween_property(self, "global_position", target_position, move_step_duration / 5)
 				tween.tween_callback(
 					func(): 
+						blocked_sound.play()
 						blocked.emit()
 				)
 				tween.set_ease(Tween.EASE_OUT)
@@ -121,6 +130,7 @@ func _process(delta):
 				tween.tween_property(self, "global_position", target_position, move_step_duration)
 				tween.tween_callback(
 					func(): 
+						falling_sound.play()
 						falled.emit()
 				)
 				tween.tween_property(self, "scale", Vector2.ZERO, 0.5)

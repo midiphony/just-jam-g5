@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c46aunm5hx3d"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ifrjm"]
-[ext_resource type="Texture2D" uid="uid://bs6ufr2b6q26g" path="res://icon.svg" id="2_he0g1"]
+[ext_resource type="Texture2D" uid="uid://ybki1i0xemc6" path="res://art/GAMA.png" id="2_ocugu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pm63"]
 
@@ -9,12 +9,18 @@
 script = ExtResource("1_ifrjm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_he0g1")
+scale = Vector2(0.063, 0.063)
+texture = ExtResource("2_ocugu")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_4pm63")
+
+[node name="BlockedSound" type="AudioStreamPlayer" parent="."]
+
+[node name="FallingSound" type="AudioStreamPlayer" parent="."]
+
+[node name="MovingSound" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

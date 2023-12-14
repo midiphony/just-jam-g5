@@ -90,6 +90,9 @@ player = NodePath("../../MainLevel/Player")
 move_selection_ui = NodePath("../MoveSkillSelectionUi")
 metadata/_edit_use_anchors_ = true
 
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+autoplay = true
+
 [editable path="MainLevel/ability"]
 [editable path="MainLevel/ability2"]
 [editable path="MainLevel/ability3"]
