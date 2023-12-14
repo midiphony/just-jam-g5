@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://bvn14altqhyvn"]
+[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://chx86daq8o8o7"]
 
 [ext_resource type="Script" path="res://moves/move_skill.gd" id="1_aciro"]
 
 [resource]
 script = ExtResource("1_aciro")
-directions = Array[int]([2, 2, 0, 2])
+directions = Array[int]([3, 3, 1, 3])
