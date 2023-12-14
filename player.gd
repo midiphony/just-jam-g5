@@ -233,3 +233,4 @@ func _on_area_2d_area_entered(area):
 	
 	if area.name.begins_with("dialog"):
 		print("dialog")
+		area.queue_free()
