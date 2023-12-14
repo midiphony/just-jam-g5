@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://dnerqto1najbc"]
+[gd_resource type="Resource" script_class="MoveSkill" load_steps=3 format=3 uid="uid://dnerqto1najbc"]
 
 [ext_resource type="Script" path="res://moves/move_skill.gd" id="1_upflf"]
+[ext_resource type="Texture2D" uid="uid://1uvriiamnvnp" path="res://art/movement_box/8 bas.png" id="2_qkbvc"]
 
 [resource]
 script = ExtResource("1_upflf")
 directions = Array[int]([3, 3, 3, 3, 3, 3, 3, 3])
+texture = ExtResource("2_qkbvc")

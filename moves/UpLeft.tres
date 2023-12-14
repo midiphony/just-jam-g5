@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://c5vofey67nyud"]
+[gd_resource type="Resource" script_class="MoveSkill" load_steps=3 format=3 uid="uid://c5vofey67nyud"]
 
 [ext_resource type="Script" path="res://moves/move_skill.gd" id="1_g7xy6"]
+[ext_resource type="Texture2D" uid="uid://bhvwmt5ef3ksi" path="res://art/movement_box/Haut gauche.png" id="2_lujm1"]
 
 [resource]
 script = ExtResource("1_g7xy6")
 directions = Array[int]([2, 0])
+texture = ExtResource("2_lujm1")
