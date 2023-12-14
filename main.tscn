@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://cjmwlrgvgc6im"]
+[gd_scene load_steps=14 format=3 uid="uid://cjmwlrgvgc6im"]
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
+[ext_resource type="Resource" uid="uid://n04fl1tuekc6" path="res://moves/LeftLeft.tres" id="3_7xcfw"]
 [ext_resource type="Texture2D" uid="uid://o625mssxwypg" path="res://art/Zone 2.png" id="3_utadv"]
 [ext_resource type="Texture2D" uid="uid://dtaudba8r2dg5" path="res://art/Zone 3.png" id="4_hsqu1"]
 [ext_resource type="Texture2D" uid="uid://d0gqvn4p7oivi" path="res://art/Zone1.png" id="5_oo8kw"]
 [ext_resource type="Resource" uid="uid://chx86daq8o8o7" path="res://moves/DownDownRightDown.tres" id="6_rgg4t"]
 [ext_resource type="Resource" uid="uid://8ejltl7vrbur" path="res://moves/RightRight.tres" id="7_w3fpd"]
+[ext_resource type="PackedScene" uid="uid://cgfvkio2xys6m" path="res://abilities/base_ability.tscn" id="8_j4mn7"]
+[ext_resource type="Resource" uid="uid://c5vofey67nyud" path="res://moves/UpLeft.tres" id="9_2dgmi"]
+[ext_resource type="Texture2D" uid="uid://cjeqyxtl0o5j8" path="res://art/generic_items/genericItem_color_085.png" id="9_hjjrt"]
+[ext_resource type="Texture2D" uid="uid://ddclnqxj0vc80" path="res://art/generic_items/genericItem_color_076.png" id="10_4m1dh"]
+[ext_resource type="Resource" uid="uid://dnerqto1najbc" path="res://moves/EightDown.tres" id="12_6g63n"]
 
 [node name="Main" type="Node2D"]
 
@@ -47,3 +53,29 @@ move_skill_key_right = ExtResource("7_w3fpd")
 remote_path = NodePath("../../PlayerCamera")
 update_rotation = false
 update_scale = false
+
+[node name="ability" parent="." instance=ExtResource("8_j4mn7")]
+position = Vector2(544, 224)
+move_skill = ExtResource("9_2dgmi")
+move_skill_name = "UpLeft"
+new_slot = true
+
+[node name="Sprite2D" parent="ability" index="0"]
+texture = ExtResource("9_hjjrt")
+
+[node name="ability2" parent="." instance=ExtResource("8_j4mn7")]
+position = Vector2(-608, 672)
+move_skill = ExtResource("3_7xcfw")
+move_skill_name = "LeftLeft"
+
+[node name="ability3" parent="." instance=ExtResource("8_j4mn7")]
+position = Vector2(1440, 480)
+move_skill = ExtResource("12_6g63n")
+move_skill_name = "EightDown"
+
+[node name="Sprite2D" parent="ability3" index="0"]
+texture = ExtResource("10_4m1dh")
+
+[editable path="ability"]
+[editable path="ability2"]
+[editable path="ability3"]

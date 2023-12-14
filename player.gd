@@ -183,3 +183,13 @@ func _process_basic_movement(delta):
 				return
 		
 		global_position = target_position
+
+
+func _on_area_2d_area_entered(area):
+	if area.name.begins_with("ability"):
+		print("Move skill name : ", area.move_skill_name)
+		print("New slot : ", area.new_slot)
+		area.queue_free()
+	
+	if area.name.begins_with("dialog"):
+		print("dialog")
