@@ -1,5 +1,9 @@
 extends Node2D
 
+class_name Player
+
+signal has_restarted
+
 @export var tilemap : TileMap
 var tilemap_cell_size : int
 
@@ -12,7 +16,7 @@ var tilemap_cell_size : int
 
 var start_position : Vector2
 
-var is_moving := false
+var can_move := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,14 +35,16 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("restart"):
 		global_position = start_position
+		has_restarted.emit()
+	
+	# Don't process inputs if player is currently in a move sequence
+	if not can_move:
+		return
 	
 	# Enable simple movements by uncommenting below code
 	_process_basic_movement(delta)
 	return
 	
-	# Don't process inputs if player is currently in a move sequence
-	if is_moving:
-		return
 	
 	var move_skill : MoveSkill
 	
@@ -57,7 +63,7 @@ func _process(delta):
 	
 	var directions := move_skill.directions
 	if directions.size() > 0:
-		is_moving = true
+		can_move = true
 	
 	var current_tile_coords := get_tile_coords_from_global_position(global_position)
 	var original_position := global_position
@@ -115,7 +121,7 @@ func _process(delta):
 	
 	
 	tween.tween_callback(
-		func(): is_moving = false
+		func(): can_move = false
 	)
 	
 
