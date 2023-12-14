@@ -1,8 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dh6qqwd0qc51e"]
+[gd_scene load_steps=9 format=3 uid="uid://dh6qqwd0qc51e"]
 
 [ext_resource type="Script" path="res://ui/move_skill_selection_ui.gd" id="1_klal1"]
+[ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="2_w34xc"]
+[ext_resource type="Texture2D" uid="uid://bbvc7me1u2qtr" path="res://art/movement_box/Selected.png" id="3_2osbk"]
+[ext_resource type="Texture2D" uid="uid://1uvriiamnvnp" path="res://art/movement_box/8 bas.png" id="3_c0u3u"]
+[ext_resource type="Texture2D" uid="uid://o02meedmn8gb" path="res://art/movement_box/Touche echap.png" id="3_pqitl"]
+[ext_resource type="Texture2D" uid="uid://chk668d6ksvpo" path="res://art/movement_box/Select.png" id="5_rs178"]
 
-[node name="MoveSkillSelectionUi" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_jqbtr"]
+font_size = 71
+
+[sub_resource type="LabelSettings" id="LabelSettings_fcydm"]
+font_size = 26
+
+[node name="MoveSkillSelectionUi" type="Control" node_paths=PackedStringArray("available_skills_slots")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,11 +21,116 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_klal1")
+available_skills_slots = [NodePath("AvailableSlots/SlotsContainer/Slot1"), NodePath("AvailableSlots/SlotsContainer/Slot2"), NodePath("AvailableSlots/SlotsContainer/Slot3"), NodePath("AvailableSlots/SlotsContainer/Slot4"), NodePath("AvailableSlots/SlotsContainer/Slot5")]
+select_texture = ExtResource("5_rs178")
+selected_texture = ExtResource("3_2osbk")
 
-[node name="Button" type="Button" parent="."]
+[node name="Background" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 0.45098)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w34xc")
+
+[node name="AvailableSlots" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_left = 96.0
+offset_top = 120.0
+offset_right = 288.0
+offset_bottom = -10.0
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="AvailableSlots"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w34xc")
+
+[node name="SlotsContainer" type="VBoxContainer" parent="AvailableSlots"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+
+[node name="Slot1" type="TextureRect" parent="AvailableSlots/SlotsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c0u3u")
+
+[node name="Slot2" type="TextureRect" parent="AvailableSlots/SlotsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c0u3u")
+
+[node name="Slot3" type="TextureRect" parent="AvailableSlots/SlotsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c0u3u")
+
+[node name="Slot4" type="TextureRect" parent="AvailableSlots/SlotsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c0u3u")
+
+[node name="Slot5" type="TextureRect" parent="AvailableSlots/SlotsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("3_c0u3u")
+
+[node name="EscapeTexture" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 288.0
-offset_top = 160.0
-offset_right = 296.0
-offset_bottom = 168.0
-text = "QSdqdqsdqsdqsd"
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 136.0
+offset_bottom = 72.0
+texture = ExtResource("3_pqitl")
+
+[node name="SelectionFeedback" type="TextureRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_rs178")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "> Toolbox"
+label_settings = SubResource("LabelSettings_jqbtr")
+horizontal_alignment = 1
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 352.0
+offset_top = 120.0
+offset_right = -96.0
+offset_bottom = 352.0
+grow_horizontal = 2
+text = "> Select with ENTER 
+then assign a movement pattern to one of your key"
+label_settings = SubResource("LabelSettings_fcydm")
+autowrap_mode = 1

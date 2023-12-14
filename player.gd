@@ -7,10 +7,19 @@ signal has_restarted
 @export var tilemap : TileMap
 var tilemap_cell_size : int
 
+@export var available_skills : Array[MoveSkill]
+
 @export var move_skill_key_down : MoveSkill
 @export var move_skill_key_up : MoveSkill
 @export var move_skill_key_left : MoveSkill
 @export var move_skill_key_right : MoveSkill
+
+var is_move_skill_left_unlocked := false
+signal move_skill_left_unlocked
+
+signal new_move_skill_unlocked
+signal falled
+signal blocked
 
 @export var move_step_duration := 0.3
 
@@ -33,17 +42,17 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("restart"):
-		global_position = start_position
-		has_restarted.emit()
-	
 	# Don't process inputs if player is currently in a move sequence
 	if not can_move:
 		return
 	
-	# Enable simple movements by uncommenting below code
-	_process_basic_movement(delta)
-	return
+	if Input.is_action_just_pressed("restart"):
+		global_position = start_position
+		has_restarted.emit()
+	
+	## Enable simple movements by uncommenting below code
+	#_process_basic_movement(delta)
+	#return
 	
 	
 	var move_skill : MoveSkill
@@ -63,7 +72,7 @@ func _process(delta):
 	
 	var directions := move_skill.directions
 	if directions.size() > 0:
-		can_move = true
+		can_move = false
 	
 	var current_tile_coords := get_tile_coords_from_global_position(global_position)
 	var original_position := global_position
@@ -98,6 +107,10 @@ func _process(delta):
 			CellType.BLOCKER:
 				tween.set_ease(Tween.EASE_IN)
 				tween.tween_property(self, "global_position", target_position, move_step_duration / 5)
+				tween.tween_callback(
+					func(): 
+						blocked.emit()
+				)
 				tween.set_ease(Tween.EASE_OUT)
 				tween.tween_property(self, "global_position", previous_position, move_step_duration / 5)
 				tween.tween_callback(
@@ -106,6 +119,10 @@ func _process(delta):
 				break
 			CellType.VOID:
 				tween.tween_property(self, "global_position", target_position, move_step_duration)
+				tween.tween_callback(
+					func(): 
+						falled.emit()
+				)
 				tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
 				tween.tween_callback(
 					func(): 
@@ -121,7 +138,7 @@ func _process(delta):
 	
 	
 	tween.tween_callback(
-		func(): can_move = false
+		func(): can_move = true
 	)
 	
 
@@ -195,7 +212,14 @@ func _on_area_2d_area_entered(area):
 	if area.name.begins_with("ability"):
 		print("Move skill name : ", area.move_skill_name)
 		print("New slot : ", area.new_slot)
+		if area.new_slot:
+			is_move_skill_left_unlocked = true
+			move_skill_left_unlocked.emit()
+		
+		available_skills.append(area.move_skill)
+		
 		area.queue_free()
+		
 	
 	if area.name.begins_with("dialog"):
 		print("dialog")

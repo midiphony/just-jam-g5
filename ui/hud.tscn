@@ -1,0 +1,170 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr17n4vl73kkc"]
+
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_3stlt"]
+[ext_resource type="Texture2D" uid="uid://c3s2tc28dbnk3" path="res://art/movement_box/touche haut.png" id="1_vdxtr"]
+[ext_resource type="Texture2D" uid="uid://2i63vg15ip3v" path="res://art/movement_box/Cancel.png" id="3_jw4ys"]
+[ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="4_e77bm"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qe2ym"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_fw4rp"]
+font_size = 20
+font_color = Color(0, 0, 0, 1)
+
+[node name="Hud" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3stlt")
+white_texture = ExtResource("4_e77bm")
+
+[node name="LeftKeyTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 736.0
+offset_top = -168.0
+offset_right = 792.0
+offset_bottom = -109.0
+grow_vertical = 0
+rotation = -1.5708
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("1_vdxtr")
+
+[node name="LeftKeySlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 640.0
+offset_top = -168.0
+offset_right = 696.0
+offset_bottom = -109.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("3_jw4ys")
+expand_mode = 1
+
+[node name="RestartGroup" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 512.0
+offset_top = -168.0
+offset_right = 568.0
+offset_bottom = -109.0
+grow_vertical = 0
+scale = Vector2(0.806097, 0.806097)
+pivot_offset = Vector2(28, 29)
+
+[node name="RestartTexture" type="TextureRect" parent="RestartGroup"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -59.0
+offset_right = 56.0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("4_e77bm")
+expand_mode = 1
+
+[node name="RLabel" type="Label" parent="RestartGroup/RestartTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "R"
+label_settings = SubResource("LabelSettings_qe2ym")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RespawnLabel" type="Label" parent="RestartGroup/RestartTexture"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 40.0
+offset_right = 16.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Respawn"
+label_settings = SubResource("LabelSettings_fw4rp")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpKeyTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 224.0
+offset_top = 416.0
+offset_right = 280.0
+offset_bottom = 475.0
+grow_horizontal = 2
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("1_vdxtr")
+
+[node name="UpKeySlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 224.0
+offset_top = 320.0
+offset_right = 280.0
+offset_bottom = 379.0
+grow_horizontal = 2
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("4_e77bm")
+expand_mode = 1
+
+[node name="RightKeyTexture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -168.0
+offset_right = -232.0
+offset_bottom = -109.0
+grow_horizontal = 0
+grow_vertical = 0
+rotation = 1.5708
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("1_vdxtr")
+
+[node name="RightKeySlot" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -168.0
+offset_right = -136.0
+offset_bottom = -109.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(28, 29)
+texture = ExtResource("4_e77bm")
+expand_mode = 1
