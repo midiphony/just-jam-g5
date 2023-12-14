@@ -25,9 +25,9 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	## Enable simple movements by uncommenting below code
-	#_process_basic_movement(delta)
-	#return
+	# Enable simple movements by uncommenting below code
+	_process_basic_movement(delta)
+	return
 	
 	# Don't process inputs if player is currently in a move sequence
 	if is_moving:
@@ -125,6 +125,10 @@ func get_cell_type(tile_coords : Vector2i) -> CellType:
 	if tiledata == null:
 		return CellType.VOID
 	
+	var foreground_tile_data := tilemap.get_cell_tile_data(1, tile_coords)
+	if foreground_tile_data != null:
+		tiledata = foreground_tile_data
+	
 	var is_void = tiledata == null or tiledata.get_custom_data("void")
 	if is_void:
 		print("Void !")
@@ -158,21 +162,17 @@ func _process_basic_movement(delta):
 		
 		var target_tile_coords := tilemap.local_to_map(tilemap.to_local(target_position))
 		
+		var tile_type := get_cell_type(tilemap.local_to_map(tilemap.to_local(target_position)))
+		
 		var tiledata : TileData = tilemap.get_cell_tile_data(0, target_tile_coords)
 		
-		if tiledata == null:
-			get_tree().reload_current_scene()
-			return
-		
-		var is_void = tiledata == null or tiledata.get_custom_data("void")
-		if is_void:
-			print("Void !")
-			get_tree().reload_current_scene()
-			return
-		
-		var is_blocking = tiledata.get_custom_data("blocker")
-		if is_blocking:
-			print("Blocked !")
-			return
+		match tile_type:
+			CellType.BLOCKER:
+				print("Blocked !")
+				return
+			CellType.VOID:
+				print("Void !")
+				get_tree().reload_current_scene()
+				return
 		
 		global_position = target_position
