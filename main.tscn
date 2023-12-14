@@ -2,8 +2,8 @@
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
-[ext_resource type="Resource" uid="uid://dfj2tthwyvegf" path="res://moves/LeftLeft.tres" id="3_7xcfw"]
-[ext_resource type="Resource" uid="uid://bvn14altqhyvn" path="res://moves/UpUpLeftUp.tres" id="4_qyew1"]
+[ext_resource type="Resource" uid="uid://dfj2tthwyvegf" path="res://moves/RightRight.tres" id="3_7xcfw"]
+[ext_resource type="Resource" uid="uid://bvn14altqhyvn" path="res://moves/DownDownRightDown.tres" id="4_qyew1"]
 
 [node name="Main" type="Node2D"]
 
