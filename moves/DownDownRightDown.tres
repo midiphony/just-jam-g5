@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://c7dhdh3fag4vp"]
+[gd_resource type="Resource" script_class="MoveSkill" load_steps=2 format=3 uid="uid://bvn14altqhyvn"]
 
 [ext_resource type="Script" path="res://moves/move_skill.gd" id="1_aciro"]
 

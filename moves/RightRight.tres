@@ -4,4 +4,4 @@
 
 [resource]
 script = ExtResource("1_fdnt4")
-directions = Array[int]([])
+directions = Array[int]([0, 0])
