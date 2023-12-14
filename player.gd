@@ -10,6 +10,8 @@ var tilemap_cell_size : int
 
 @export var move_step_duration := 0.3
 
+var start_position : Vector2
+
 var is_moving := false
 
 # Called when the node enters the scene tree for the first time.
@@ -22,9 +24,14 @@ func _ready():
 	# Center player on the tile he is over
 	var current_tile_coords := get_tile_coords_from_global_position(global_position)
 	global_position = tilemap.to_global(tilemap.map_to_local(current_tile_coords))
+	
+	start_position = global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if Input.is_action_just_pressed("restart"):
+		global_position = start_position
+	
 	# Enable simple movements by uncommenting below code
 	_process_basic_movement(delta)
 	return
