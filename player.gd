@@ -8,6 +8,8 @@ var tilemap_cell_size : int
 @export var move_skill_key_left : MoveSkill
 @export var move_skill_key_right : MoveSkill
 
+@export var move_step_duration := 0.3
+
 var is_moving := false
 
 # Called when the node enters the scene tree for the first time.
@@ -78,19 +80,19 @@ func _process(delta):
 		
 		match cell_type:
 			CellType.VALID:
-				tween.tween_property(self, "global_position", target_position, 0.5)
+				tween.tween_property(self, "global_position", target_position, move_step_duration)
 				pass
 			CellType.BLOCKER:
 				tween.set_ease(Tween.EASE_IN)
-				tween.tween_property(self, "global_position", target_position, 0.1)
+				tween.tween_property(self, "global_position", target_position, move_step_duration / 5)
 				tween.set_ease(Tween.EASE_OUT)
-				tween.tween_property(self, "global_position", previous_position, 0.1)
+				tween.tween_property(self, "global_position", previous_position, move_step_duration / 5)
 				tween.tween_callback(
 					func(): global_position = original_position
 				)
 				break
 			CellType.VOID:
-				tween.tween_property(self, "global_position", target_position, 0.5)
+				tween.tween_property(self, "global_position", target_position, move_step_duration)
 				tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
 				tween.tween_callback(
 					func(): 
