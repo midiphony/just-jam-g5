@@ -1,8 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv1gwn1qsokr7"]
+[gd_scene load_steps=6 format=3 uid="uid://cv1gwn1qsokr7"]
 
 [ext_resource type="Script" path="res://boot_scene.gd" id="1_1ipqw"]
 [ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="1_lujvx"]
 [ext_resource type="PackedScene" uid="uid://cjmwlrgvgc6im" path="res://main.tscn" id="2_yivxk"]
+[ext_resource type="AudioStream" uid="uid://b1g0ytenpf71s" path="res://audio/DemarrageRobot1.ogg" id="4_sk0xa"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3c65j"]
+font_size = 51
 
 [node name="BootScene" type="Node"]
 script = ExtResource("1_1ipqw")
@@ -52,3 +56,19 @@ Initialization complete. Recovery of missing memory fragments is necessary for a
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
+
+[node name="GameTitle" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 28.0
+offset_bottom = 98.0
+grow_horizontal = 2
+text = "ROM : Robotic Odyssey of Memory"
+label_settings = SubResource("LabelSettings_3c65j")
+horizontal_alignment = 1
+autowrap_mode = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_sk0xa")
+autoplay = true
