@@ -70,13 +70,13 @@ texture = ExtResource("9_hjjrt")
 
 [node name="ability2" parent="MainLevel" instance=ExtResource("8_j4mn7")]
 position = Vector2(-544, 672)
-move_skill = ExtResource("3_7xcfw")
-move_skill_name = "LeftLeft"
+move_skill = ExtResource("12_6g63n")
+move_skill_name = "EightDown"
 
 [node name="ability3" parent="MainLevel" instance=ExtResource("8_j4mn7")]
 position = Vector2(1440, 480)
-move_skill = ExtResource("12_6g63n")
-move_skill_name = "EightDown"
+move_skill = ExtResource("3_7xcfw")
+move_skill_name = "LeftLeft"
 
 [node name="Sprite2D" parent="MainLevel/ability3" index="0"]
 texture = ExtResource("10_4m1dh")
