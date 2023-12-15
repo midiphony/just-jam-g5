@@ -60,4 +60,4 @@ rewards = ""
 [resource]
 script = ExtResource("2_6w4r3")
 dialog_entries = Array[ExtResource("1_0fflw")]([SubResource("Resource_176gu"), SubResource("Resource_18mp3"), SubResource("Resource_ji82p"), SubResource("Resource_qglya"), SubResource("Resource_6fwox"), SubResource("Resource_0vmgl"), SubResource("Resource_qxqly"), SubResource("Resource_elc3o"), SubResource("Resource_ig6g1")])
-rewards_text = ""
+rewards_text = "You unlocked a new move pattern."

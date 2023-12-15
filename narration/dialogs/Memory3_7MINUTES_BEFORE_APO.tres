@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://djoae7hg7illl"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=10 format=3 uid="uid://djoae7hg7illl"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_uwllx"]
+[ext_resource type="Texture2D" uid="uid://c8j4rnpjcidbo" path="res://art/PhotoFamilleSansRobot_1.png" id="2_28otl"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_avgjp"]
 
 [sub_resource type="Resource" id="Resource_qdtnf"]
@@ -42,4 +43,5 @@ rewards = ""
 [resource]
 script = ExtResource("2_avgjp")
 dialog_entries = Array[ExtResource("1_uwllx")]([SubResource("Resource_qdtnf"), SubResource("Resource_ppmx5"), SubResource("Resource_0qmaa"), SubResource("Resource_k2al2"), SubResource("Resource_rol7y"), SubResource("Resource_armuj")])
-rewards_text = ""
+rewards_text = "You unlocked a new move pattern."
+image = ExtResource("2_28otl")
