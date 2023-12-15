@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://7yh54ut3po52"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://dmw7ftqy23bcd"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_pkyi2"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_indvf"]
@@ -7,17 +7,21 @@
 script = ExtResource("1_pkyi2")
 speaker = "GAMA"
 text = "Data confirmed. Planet 'Xyloph-3' meets human viability criteria."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_ml0dy"]
 script = ExtResource("1_pkyi2")
 speaker = "CALEB"
 text = "Imagine the possibilities! A new frontier for humanity. A planet with the same characteristics as ours"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_26rsi"]
 script = ExtResource("1_pkyi2")
 speaker = "AVA"
 text = "It's extraordinary, but we have to be careful. We don't know the long-term effects of our intervention on its ecosystem."
+rewards = ""
 
 [resource]
 script = ExtResource("2_indvf")
 dialog_entries = Array[ExtResource("1_pkyi2")]([SubResource("Resource_b6ny6"), SubResource("Resource_ml0dy"), SubResource("Resource_26rsi")])
+rewards_text = ""

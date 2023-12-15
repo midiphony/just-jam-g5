@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=11 format=3 uid="uid://dtdn7hgtlcxlr"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=11 format=3 uid="uid://d2arj3rbbonp6"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_xll28"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_h4qft"]
@@ -7,42 +7,51 @@
 script = ExtResource("1_xll28")
 speaker = "CALEB"
 text = "Well, the last memory module is in place. It's ready."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_lgig6"]
 script = ExtResource("1_xll28")
 speaker = "AVA"
 text = "It's incredible. Do you think it will live up to our expectations?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_eo3vq"]
 script = ExtResource("1_xll28")
 speaker = "CALEB"
 text = "I designed him to learn and adapt. He'll be more than a tool, he'll be part of our family."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_nx6qs"]
 script = ExtResource("1_xll28")
 speaker = "SEARCH ENGINE ROBOT"
 text = "System operational. I'm ready for my directives."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_dm4li"]
 script = ExtResource("1_xll28")
 speaker = "ELI"
 text = "Does it have a name?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_7pxem"]
 script = ExtResource("1_xll28")
 speaker = "AVA"
 text = "Why not give him one? He's part of our team now."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_u6xgm"]
 script = ExtResource("1_xll28")
 speaker = "ELI"
 text = "I want to call him GAMA, like the explorer in the stories you tell me Mum, he'll help us discover new worlds!"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_4qk4o"]
 script = ExtResource("1_xll28")
 speaker = "GAMA"
 text = "GAMA\" (processing information): Identification accepted. I am ready to assist in discovery and exploration."
+rewards = ""
 
 [resource]
 script = ExtResource("2_h4qft")
 dialog_entries = Array[ExtResource("1_xll28")]([SubResource("Resource_th1h7"), SubResource("Resource_lgig6"), SubResource("Resource_eo3vq"), SubResource("Resource_nx6qs"), SubResource("Resource_dm4li"), SubResource("Resource_7pxem"), SubResource("Resource_u6xgm"), SubResource("Resource_4qk4o")])
+rewards_text = ""

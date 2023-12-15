@@ -7,37 +7,45 @@
 script = ExtResource("1_xikbt")
 speaker = "ELI"
 text = "What are you exactly?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_yc53t"]
 script = ExtResource("1_xikbt")
 speaker = "GAMA"
 text = "I'm a personalized assistance unit, Great Autonomous Mobile Assistant, but everyone calls me GAMA... How can I help you?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_x1jrt"]
 script = ExtResource("1_xikbt")
 speaker = "ELI"
 text = "Why are you talking to me like that?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_k38n4"]
 script = ExtResource("1_xikbt")
 speaker = "GAMA"
 text = "My language was specifically designed to be understandable to the majority of humans."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_ey4wk"]
 script = ExtResource("1_xikbt")
 speaker = "ELI"
 text = "But you're not human like us, are you?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_nqlwd"]
 script = ExtResource("1_xikbt")
 speaker = "GAMA"
 text = "I look human, but I don't feel anything like you humans. I don't have that ability."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_wgoyd"]
 script = ExtResource("1_xikbt")
 speaker = "ELI"
 text = "Does that mean you don't cry when you're sad?"
+rewards = ""
 
 [resource]
 script = ExtResource("1_sly78")
 dialog_entries = Array[ExtResource("1_xikbt")]([SubResource("Resource_nx2r7"), SubResource("Resource_yc53t"), SubResource("Resource_x1jrt"), SubResource("Resource_k38n4"), SubResource("Resource_ey4wk"), SubResource("Resource_nqlwd"), SubResource("Resource_wgoyd")])
+rewards_text = ""

@@ -65,5 +65,5 @@ func _process(delta):
 				visible = false
 				player.can_move = true
 				
-				if last_dialog_name == dialog_data.resource_name:
-					get_tree().change_scene_to_packed(end_screen)
+				#if last_dialog_name == dialog_data.resource_name:
+					#get_tree().change_scene_to_packed(end_screen)

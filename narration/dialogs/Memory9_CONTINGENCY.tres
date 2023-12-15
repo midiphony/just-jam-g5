@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://dd6jmbrqa3xv5"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=8 format=3 uid="uid://uryowdl8y237"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_88qxy"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_mht1g"]
@@ -7,27 +7,33 @@
 script = ExtResource("1_88qxy")
 speaker = "CALEB"
 text = "The operation is underway. Planet 'Xyloph-3' begins its approach to our solar system."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_s5thv"]
 script = ExtResource("1_88qxy")
 speaker = "GAMA"
 text = "Trajectory confirmed. Parameters within predicted limits. Gravitational effects on our solar system to be monitored."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_vkhf0"]
 script = ExtResource("1_88qxy")
 speaker = "AVA"
 text = "What if the effects are greater than our models predict?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_qcfsy"]
 script = ExtResource("1_88qxy")
 speaker = "CALEB"
 text = "We have contingency plans. GAMA will help us monitor and adjust the course if necessary."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_lmvyn"]
 script = ExtResource("1_88qxy")
 speaker = "GAMA"
 text = "I'll be keeping an eye on 'Xyloph-3'. The safety of the process is my priority."
+rewards = ""
 
 [resource]
 script = ExtResource("2_mht1g")
 dialog_entries = Array[ExtResource("1_88qxy")]([SubResource("Resource_xy7ee"), SubResource("Resource_s5thv"), SubResource("Resource_vkhf0"), SubResource("Resource_qcfsy"), SubResource("Resource_lmvyn")])
+rewards_text = ""

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=12 format=3 uid="uid://c37lmllr8glrq"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=12 format=3 uid="uid://dj373mpfyx08r"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_0fflw"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_6w4r3"]
@@ -7,47 +7,57 @@
 script = ExtResource("1_0fflw")
 speaker = "GAMA"
 text = "Daily interaction analysis completed. I notice that Eli interacts with me frequently. Is this usual for a human child?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_18mp3"]
 script = ExtResource("1_0fflw")
 speaker = "AVA"
 text = "Eli doesn't have many friends his own age. You must be important to him."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_ji82p"]
 script = ExtResource("1_0fflw")
 speaker = "GAMA"
 text = "Important? In what capacity?"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_qglya"]
 script = ExtResource("1_0fflw")
 speaker = "AVA"
 text = "Well, you're like a friend to him. You listen to him and he learns a lot from you."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_6fwox"]
 script = ExtResource("1_0fflw")
 speaker = "GAMA"
 text = "A friend... I'm designed to assist and protect, but the concept of friendship is complex for me."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_0vmgl"]
 script = ExtResource("1_0fflw")
 speaker = "AVA"
 text = "Friendship is more than assistance. It's a connection, an emotional bond. Eli feels connected to you."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_qxqly"]
 script = ExtResource("1_0fflw")
 speaker = "GAMA"
 text = "Emotional bonding... This seems beyond my initial programming. However, I wish to understand to improve my interaction with Eli."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_elc3o"]
 script = ExtResource("1_0fflw")
 speaker = "AVA"
 text = "Eli needs you, especially in this difficult world. You're helping him more than you know, GAMA."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_ig6g1"]
 script = ExtResource("1_0fflw")
 speaker = "GAMA"
 text = "I will continue to observe and interact with Eli. Maybe, through these interactions, I'll be able to 'understand' what friendship is."
+rewards = ""
 
 [resource]
 script = ExtResource("2_6w4r3")
 dialog_entries = Array[ExtResource("1_0fflw")]([SubResource("Resource_176gu"), SubResource("Resource_18mp3"), SubResource("Resource_ji82p"), SubResource("Resource_qglya"), SubResource("Resource_6fwox"), SubResource("Resource_0vmgl"), SubResource("Resource_qxqly"), SubResource("Resource_elc3o"), SubResource("Resource_ig6g1")])
+rewards_text = ""

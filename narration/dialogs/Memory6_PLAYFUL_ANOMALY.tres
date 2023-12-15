@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://d2hfmij2pj6vk"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://t58fp4ib74oe"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_nvl6l"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_h5clk"]
@@ -7,22 +7,27 @@
 script = ExtResource("1_nvl6l")
 speaker = "ELI"
 text = "GAMA, why don't you try playing with us? It might be fun!"
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_lk6nd"]
 script = ExtResource("1_nvl6l")
 speaker = "GAMA"
 text = "I'm not programmed for games. However, I am curious to understand your interaction."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_v373x"]
 script = ExtResource("1_nvl6l")
 speaker = "AVA"
 text = "It's good to see you interested. Come on, I'll explain the rules."
+rewards = ""
 
 [sub_resource type="Resource" id="Resource_lku8g"]
 script = ExtResource("1_nvl6l")
 speaker = "GAMA"
 text = "I think I understand the objective now. It's a fascinating method of social interaction. Humans are decidedly curious."
+rewards = ""
 
 [resource]
 script = ExtResource("2_h5clk")
 dialog_entries = Array[ExtResource("1_nvl6l")]([SubResource("Resource_kvmif"), SubResource("Resource_lk6nd"), SubResource("Resource_v373x"), SubResource("Resource_lku8g")])
+rewards_text = ""

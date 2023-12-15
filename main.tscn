@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cjmwlrgvgc6im"]
+[gd_scene load_steps=36 format=3 uid="uid://cjmwlrgvgc6im"]
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
@@ -11,15 +11,31 @@
 [ext_resource type="PackedScene" uid="uid://cgfvkio2xys6m" path="res://abilities/base_ability.tscn" id="8_j4mn7"]
 [ext_resource type="Resource" uid="uid://c5vofey67nyud" path="res://moves/UpLeft.tres" id="9_2dgmi"]
 [ext_resource type="Texture2D" uid="uid://cjeqyxtl0o5j8" path="res://art/generic_items/genericItem_color_085.png" id="9_hjjrt"]
+[ext_resource type="PackedScene" uid="uid://cts7u5ju0ced0" path="res://ui/end_screen.tscn" id="9_peu5v"]
 [ext_resource type="Texture2D" uid="uid://ddclnqxj0vc80" path="res://art/generic_items/genericItem_color_076.png" id="10_4m1dh"]
+[ext_resource type="Resource" uid="uid://cdw77xibqln1n" path="res://narration/dialogs/Memory1_ELI_WINSTER.tres" id="10_u2071"]
 [ext_resource type="Resource" uid="uid://dnerqto1najbc" path="res://moves/EightDown.tres" id="12_6g63n"]
+[ext_resource type="Resource" uid="uid://djoae7hg7illl" path="res://narration/dialogs/Memory3_7MINUTES_BEFORE_APO.tres" id="13_hdhl4"]
 [ext_resource type="PackedScene" uid="uid://c7gpu2uxptmul" path="res://narration/dialog_item.tscn" id="14_1db6g"]
 [ext_resource type="PackedScene" uid="uid://dh6qqwd0qc51e" path="res://ui/move_skill_selection_ui.tscn" id="14_ioiyo"]
+[ext_resource type="Resource" uid="uid://dj373mpfyx08r" path="res://narration/dialogs/Memory2_FRIENDSHIP.tres" id="15_m5i8a"]
 [ext_resource type="PackedScene" uid="uid://cr17n4vl73kkc" path="res://ui/hud.tscn" id="15_qvi63"]
 [ext_resource type="Texture2D" uid="uid://bciee5a57uglf" path="res://art/generic_items/book_1.png" id="15_umsun"]
 [ext_resource type="Texture2D" uid="uid://biabjnefgcici" path="res://art/generic_items/book_2.png" id="16_xuq62"]
+[ext_resource type="Resource" uid="uid://t58fp4ib74oe" path="res://narration/dialogs/Memory6_PLAYFUL_ANOMALY.tres" id="18_o7tk5"]
 [ext_resource type="PackedScene" uid="uid://dlrq0nq83bqjr" path="res://ui/dialog_popup.tscn" id="19_frv75"]
+[ext_resource type="Resource" uid="uid://uryowdl8y237" path="res://narration/dialogs/Memory9_CONTINGENCY.tres" id="20_3cpb4"]
 [ext_resource type="AudioStream" uid="uid://do8dhoisehm2l" path="res://audio/Main_Theme.wav" id="20_rn7t1"]
+[ext_resource type="Resource" uid="uid://c817hn53modq5" path="res://narration/dialogs/Memory11_STARS.tres" id="21_eyocm"]
+[ext_resource type="Resource" uid="uid://dmw7ftqy23bcd" path="res://narration/dialogs/Memory7_XYLOPH3.tres" id="22_pwd8y"]
+[ext_resource type="Resource" uid="uid://dy0y3osdbdiob" path="res://narration/dialogs/Memory8_7MONTH_PRIOR_APO.tres" id="23_b4wsy"]
+[ext_resource type="Resource" uid="uid://d2arj3rbbonp6" path="res://narration/dialogs/Memory4_GAMA.tres" id="24_bmtul"]
+[ext_resource type="Resource" uid="uid://btqjbmeqmvcwr" path="res://narration/dialogs/Memory5_GRIEF.tres" id="26_d8she"]
+[ext_resource type="Resource" uid="uid://b16apxguwn54w" path="res://narration/dialogs/Memory10_REMORSE.tres" id="27_13quc"]
+[ext_resource type="Texture2D" uid="uid://dctivph5seiy0" path="res://art/PhotoFamilleAvecRobot.png" id="31_mleex"]
+[ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="31_q3hvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sgvhp"]
 
 [node name="Main" type="Node"]
 
@@ -55,11 +71,13 @@ position = Vector2(418, 270)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_oo8kw")
 
-[node name="Player" parent="MainLevel" node_paths=PackedStringArray("tilemap", "dialog_popup") instance=ExtResource("2_p74tl")]
+[node name="Player" parent="MainLevel" node_paths=PackedStringArray("tilemap", "dialog_popup", "final_image") instance=ExtResource("2_p74tl")]
 position = Vector2(224, 32)
 tilemap = NodePath("../TileMap")
 available_skills = Array[Resource("res://moves/move_skill.gd")]([ExtResource("7_w3fpd"), ExtResource("6_rgg4t")])
 dialog_popup = NodePath("../../UI/DialogPopup")
+end_screen = ExtResource("9_peu5v")
+final_image = NodePath("../../UI/FinalImage")
 
 [node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="MainLevel/Player"]
 remote_path = NodePath("../../PlayerCamera")
@@ -71,70 +89,87 @@ position = Vector2(544, 224)
 move_skill = ExtResource("9_2dgmi")
 move_skill_name = "UpLeft"
 new_slot = true
+dialog = ExtResource("10_u2071")
 
 [node name="Sprite2D" parent="MainLevel/ability" index="0"]
 texture = ExtResource("9_hjjrt")
 
-[node name="ability2" parent="MainLevel" instance=ExtResource("8_j4mn7")]
+[node name="ability3" parent="MainLevel" instance=ExtResource("8_j4mn7")]
 position = Vector2(-544, 672)
 move_skill = ExtResource("12_6g63n")
 move_skill_name = "EightDown"
+dialog = ExtResource("13_hdhl4")
 
-[node name="ability3" parent="MainLevel" instance=ExtResource("8_j4mn7")]
+[node name="ability2" parent="MainLevel" instance=ExtResource("8_j4mn7")]
 position = Vector2(1440, 480)
 move_skill = ExtResource("3_7xcfw")
 move_skill_name = "LeftLeft"
+dialog = ExtResource("15_m5i8a")
 
-[node name="Sprite2D" parent="MainLevel/ability3" index="0"]
+[node name="Sprite2D" parent="MainLevel/ability2" index="0"]
 texture = ExtResource("10_4m1dh")
 
-[node name="dialogItem" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_6" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(350, 159)
+dialog = ExtResource("18_o7tk5")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_6" index="0"]
 texture = ExtResource("15_umsun")
 
-[node name="dialogItem2" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_9" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(-608, 224)
+dialog = ExtResource("20_3cpb4")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem2" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_9" index="0"]
 texture = ExtResource("15_umsun")
 
-[node name="dialogItem3" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_11" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(-544, 416)
+dialog = ExtResource("21_eyocm")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem3" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_11" index="0"]
 texture = ExtResource("15_umsun")
 
-[node name="dialogItem4" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_7" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(736, 160)
+dialog = ExtResource("22_pwd8y")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem4" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_7" index="0"]
 texture = ExtResource("15_umsun")
 
-[node name="dialogItem5" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_8" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(1120, 160)
+dialog = ExtResource("23_b4wsy")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem5" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_8" index="0"]
 texture = ExtResource("15_umsun")
 
-[node name="dialogItem6" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem-4" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(-32, 544)
+dialog = ExtResource("24_bmtul")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem6" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem-4" index="0"]
 texture = ExtResource("16_xuq62")
 
-[node name="dialogItem7" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_5" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(928, 480)
+dialog = ExtResource("26_d8she")
 
-[node name="Sprite2D" parent="MainLevel/dialogItem7" index="0"]
+[node name="Sprite2D" parent="MainLevel/dialogItem_5" index="0"]
 texture = ExtResource("16_xuq62")
 
-[node name="last_dialog" parent="MainLevel" instance=ExtResource("14_1db6g")]
+[node name="dialogItem_10" parent="MainLevel" instance=ExtResource("14_1db6g")]
+position = Vector2(1184, 32)
+dialog = ExtResource("27_13quc")
+
+[node name="Sprite2D" parent="MainLevel/dialogItem_10" index="0"]
+texture = ExtResource("16_xuq62")
+
+[node name="END" type="Area2D" parent="MainLevel"]
 position = Vector2(544, 992)
 
-[node name="Sprite2D" parent="MainLevel/last_dialog" index="0"]
-texture = ExtResource("16_xuq62")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MainLevel/END"]
+shape = SubResource("RectangleShape2D_sgvhp")
 
 [node name="UI" type="CanvasLayer" parent="."]
 
@@ -150,18 +185,52 @@ metadata/_edit_use_anchors_ = true
 dialog_data = null
 player = NodePath("../../MainLevel/Player")
 
+[node name="FinalImage" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="TextureRect" parent="UI/FinalImage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("31_q3hvt")
+
+[node name="FinalImageRect" type="TextureRect" parent="UI/FinalImage"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 66.0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.875587, 0.875587)
+texture = ExtResource("31_mleex")
+expand_mode = 1
+stretch_mode = 3
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("20_rn7t1")
 autoplay = true
 
 [editable path="MainLevel/ability"]
-[editable path="MainLevel/ability2"]
 [editable path="MainLevel/ability3"]
-[editable path="MainLevel/dialogItem"]
-[editable path="MainLevel/dialogItem2"]
-[editable path="MainLevel/dialogItem3"]
-[editable path="MainLevel/dialogItem4"]
-[editable path="MainLevel/dialogItem5"]
-[editable path="MainLevel/dialogItem6"]
-[editable path="MainLevel/dialogItem7"]
-[editable path="MainLevel/last_dialog"]
+[editable path="MainLevel/ability2"]
+[editable path="MainLevel/dialogItem_6"]
+[editable path="MainLevel/dialogItem_9"]
+[editable path="MainLevel/dialogItem_11"]
+[editable path="MainLevel/dialogItem_7"]
+[editable path="MainLevel/dialogItem_8"]
+[editable path="MainLevel/dialogItem-4"]
+[editable path="MainLevel/dialogItem_5"]
+[editable path="MainLevel/dialogItem_10"]

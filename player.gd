@@ -16,6 +16,10 @@ var tilemap_cell_size : int
 
 @export var dialog_popup : DialogPopup
 
+@export var end_screen : PackedScene
+
+@export var final_image : Control
+
 @onready var blocked_sound := $BlockedSound
 @onready var falling_sound := $FallingSound
 @onready var moving_sound := $MovingSound
@@ -52,7 +56,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# Don't process inputs if player is currently in a move sequence
-	if not can_move:
+	if not can_move || has_ended:
 		return
 	
 	if Input.is_action_just_pressed("restart"):
@@ -234,7 +238,18 @@ func _process_basic_movement(delta):
 
 var picked_up_item
 
+var has_ended : bool
+
 func _on_area_2d_area_entered(area):
+	if area.name == "END":
+		has_ended = true
+		final_image.visible = true
+		await get_tree().create_timer(10).timeout
+		get_tree().change_scene_to_packed(end_screen)
+		
+		return 
+		
+		
 	picked_up_item = area
 
 func _on_area_2d_area_exited(area):
