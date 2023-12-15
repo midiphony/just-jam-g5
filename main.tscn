@@ -159,7 +159,7 @@ dialog = ExtResource("26_d8she")
 texture = ExtResource("16_xuq62")
 
 [node name="dialogItem_10" parent="MainLevel" instance=ExtResource("14_1db6g")]
-position = Vector2(1184, 32)
+position = Vector2(1120, 32)
 dialog = ExtResource("27_13quc")
 
 [node name="Sprite2D" parent="MainLevel/dialogItem_10" index="0"]
