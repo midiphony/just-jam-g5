@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://cts7u5ju0ced0"]
+
+[ext_resource type="Script" path="res://ui/end_screen.gd" id="1_3dugw"]
+[ext_resource type="AudioStream" uid="uid://c1x86f5dv6qx7" path="res://audio/Music_emotionnal.wav" id="1_u2bop"]
+[ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="2_kqsi3"]
+[ext_resource type="Texture2D" uid="uid://o02meedmn8gb" path="res://art/movement_box/Touche echap.png" id="3_f4c5c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wqu31"]
+font_size = 20
+
+[node name="EndScreen" type="Node"]
+script = ExtResource("1_3dugw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_u2bop")
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_kqsi3")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits
+
+
+Julien Bonnasserre
+
+Yasmine Borne
+
+Gweven Delorme
+
+Laura Lopes
+
+Alexis Loubet-Sartrou
+
+Sylvain Rousseau"
+label_settings = SubResource("LabelSettings_wqu31")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 116.0
+offset_bottom = 102.0
+texture = ExtResource("3_f4c5c")

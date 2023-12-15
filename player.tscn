@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c46aunm5hx3d"]
+[gd_scene load_steps=7 format=3 uid="uid://c46aunm5hx3d"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_ifrjm"]
 [ext_resource type="Texture2D" uid="uid://ybki1i0xemc6" path="res://art/GAMA.png" id="2_ocugu"]
 [ext_resource type="AudioStream" uid="uid://ca4vwuncibss6" path="res://audio/Collision1.ogg" id="3_eein5"]
 [ext_resource type="AudioStream" uid="uid://bufos1bhcvplx" path="res://audio/Mort1.ogg" id="4_2mkp5"]
+[ext_resource type="AudioStream" uid="uid://caqi7832tsl15" path="res://audio/Deplacement3.ogg" id="5_wrnbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4pm63"]
 
@@ -26,6 +27,7 @@ stream = ExtResource("3_eein5")
 stream = ExtResource("4_2mkp5")
 
 [node name="MovingSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_wrnbn")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]

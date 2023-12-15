@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cjmwlrgvgc6im"]
+[gd_scene load_steps=21 format=3 uid="uid://cjmwlrgvgc6im"]
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
@@ -18,6 +18,8 @@
 [ext_resource type="PackedScene" uid="uid://cr17n4vl73kkc" path="res://ui/hud.tscn" id="15_qvi63"]
 [ext_resource type="Texture2D" uid="uid://bciee5a57uglf" path="res://art/generic_items/book_1.png" id="15_umsun"]
 [ext_resource type="Texture2D" uid="uid://biabjnefgcici" path="res://art/generic_items/book_2.png" id="16_xuq62"]
+[ext_resource type="PackedScene" uid="uid://dlrq0nq83bqjr" path="res://ui/dialog_popup.tscn" id="19_frv75"]
+[ext_resource type="AudioStream" uid="uid://do8dhoisehm2l" path="res://audio/Main_Theme.wav" id="20_rn7t1"]
 
 [node name="Main" type="Node"]
 
@@ -49,14 +51,15 @@ scale = Vector2(0.3, 0.3)
 texture = ExtResource("3_utadv")
 
 [node name="Zone1BackgroundTexture" type="Sprite2D" parent="MainLevel"]
-position = Vector2(416, 352)
+position = Vector2(418, 270)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("5_oo8kw")
 
-[node name="Player" parent="MainLevel" node_paths=PackedStringArray("tilemap") instance=ExtResource("2_p74tl")]
+[node name="Player" parent="MainLevel" node_paths=PackedStringArray("tilemap", "dialog_popup") instance=ExtResource("2_p74tl")]
 position = Vector2(224, 32)
 tilemap = NodePath("../TileMap")
 available_skills = Array[Resource("res://moves/move_skill.gd")]([ExtResource("7_w3fpd"), ExtResource("6_rgg4t")])
+dialog_popup = NodePath("../../UI/DialogPopup")
 
 [node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="MainLevel/Player"]
 remote_path = NodePath("../../PlayerCamera")
@@ -127,8 +130,13 @@ position = Vector2(928, 480)
 [node name="Sprite2D" parent="MainLevel/dialogItem7" index="0"]
 texture = ExtResource("16_xuq62")
 
+[node name="last_dialog" parent="MainLevel" instance=ExtResource("14_1db6g")]
+position = Vector2(544, 992)
+
+[node name="Sprite2D" parent="MainLevel/last_dialog" index="0"]
+texture = ExtResource("16_xuq62")
+
 [node name="UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="MoveSkillSelectionUi" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("14_ioiyo")]
 player = NodePath("../../MainLevel/Player")
@@ -138,7 +146,12 @@ player = NodePath("../../MainLevel/Player")
 move_selection_ui = NodePath("../MoveSkillSelectionUi")
 metadata/_edit_use_anchors_ = true
 
+[node name="DialogPopup" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("19_frv75")]
+dialog_data = null
+player = NodePath("../../MainLevel/Player")
+
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_rn7t1")
 autoplay = true
 
 [editable path="MainLevel/ability"]
@@ -151,3 +164,4 @@ autoplay = true
 [editable path="MainLevel/dialogItem5"]
 [editable path="MainLevel/dialogItem6"]
 [editable path="MainLevel/dialogItem7"]
+[editable path="MainLevel/last_dialog"]

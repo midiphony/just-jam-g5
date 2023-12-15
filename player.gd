@@ -14,6 +14,8 @@ var tilemap_cell_size : int
 @export var move_skill_key_left : MoveSkill
 @export var move_skill_key_right : MoveSkill
 
+@export var dialog_popup : DialogPopup
+
 @onready var blocked_sound := $BlockedSound
 @onready var falling_sound := $FallingSound
 @onready var moving_sound := $MovingSound
@@ -251,11 +253,23 @@ func _pick_up_item():
 		
 		available_skills.append(picked_up_item.move_skill)
 		
+		display_dialog(picked_up_item.dialog)
+		
 		picked_up_item.queue_free()
 		
 	
 	if picked_up_item.name.begins_with("dialog"):
 		print("dialog")
+		display_dialog(picked_up_item.dialog)
 		picked_up_item.queue_free()
 	
 	picked_up_item = null
+
+
+func display_dialog(dialog : Dialog):
+	if dialog == null:
+		print("Cannot display null dialog")
+		return
+	
+	dialog_popup.set_up_dialog(dialog)
+	dialog_popup.visible = true
