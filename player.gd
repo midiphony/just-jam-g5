@@ -147,7 +147,10 @@ func _process(delta):
 	
 	
 	tween.tween_callback(
-		func(): can_move = true
+		func(): 
+			can_move = true
+			if picked_up_item != null:
+				_pick_up_item()
 	)
 	
 
@@ -220,20 +223,32 @@ func _process_basic_movement(delta):
 		
 		global_position = target_position
 
+var picked_up_item
 
 func _on_area_2d_area_entered(area):
-	if area.name.begins_with("ability"):
-		print("Move skill name : ", area.move_skill_name)
-		print("New slot : ", area.new_slot)
-		if area.new_slot:
+	picked_up_item = area
+
+func _on_area_2d_area_exited(area):
+	picked_up_item = null
+
+func _pick_up_item():
+	if picked_up_item == null:
+		return
+	
+	if picked_up_item.name.begins_with("ability"):
+		print("Move skill name : ", picked_up_item.move_skill_name)
+		print("New slot : ", picked_up_item.new_slot)
+		if picked_up_item.new_slot:
 			is_move_skill_left_unlocked = true
 			move_skill_left_unlocked.emit()
 		
-		available_skills.append(area.move_skill)
+		available_skills.append(picked_up_item.move_skill)
 		
-		area.queue_free()
+		picked_up_item.queue_free()
 		
 	
-	if area.name.begins_with("dialog"):
+	if picked_up_item.name.begins_with("dialog"):
 		print("dialog")
-		area.queue_free()
+		picked_up_item.queue_free()
+	
+	picked_up_item = null
