@@ -23,7 +23,7 @@ dialog_data = ExtResource("2_asb8f")
 end_screen = ExtResource("3_jux70")
 
 [node name="TextureRect" type="TextureRect" parent="."]
-modulate = Color(0.411765, 0.411765, 0.411765, 0.388235)
+modulate = Color(0, 0, 0, 0.729412)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
