@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=6 format=3 uid="uid://bva4u2n85mxtl"]
+
+[ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_ybh23"]
+[ext_resource type="Script" path="res://narration/dialog.gd" id="2_dhtot"]
+
+[sub_resource type="Resource" id="Resource_wgmho"]
+script = ExtResource("1_ybh23")
+speaker = "GAMA"
+text = "Anomalies detected: atmospheric changes on 'Xyloph-3' following our manipulation. Possible impact on terrestrial weather systems."
+
+[sub_resource type="Resource" id="Resource_t2qe3"]
+script = ExtResource("1_ybh23")
+speaker = "AVA"
+text = "Could these disturbances bounce back to our planet?"
+
+[sub_resource type="Resource" id="Resource_4wevn"]
+script = ExtResource("1_ybh23")
+speaker = "CALEB"
+text = "We need to analyze this further. GAMA, continue to monitor these anomalies."
+
+[resource]
+script = ExtResource("2_dhtot")
+dialog_entries = Array[ExtResource("1_ybh23")]([SubResource("Resource_wgmho"), SubResource("Resource_t2qe3"), SubResource("Resource_4wevn")])

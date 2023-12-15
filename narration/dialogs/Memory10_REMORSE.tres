@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=7 format=3 uid="uid://c82k48xjm1yux"]
+
+[ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_3ak7e"]
+[ext_resource type="Script" path="res://narration/dialog.gd" id="2_ybuwh"]
+
+[sub_resource type="Resource" id="Resource_olebj"]
+script = ExtResource("1_3ak7e")
+speaker = "CALEB"
+text = "When we discovered 'Xyloph-3', all we could think about was exploration, adventure... We didn't measure the risks."
+
+[sub_resource type="Resource" id="Resource_ysaya"]
+script = ExtResource("1_3ak7e")
+speaker = "AVA"
+text = "We triggered something much bigger than ourselves. This planet... it was like opening Pandora's box."
+
+[sub_resource type="Resource" id="Resource_sboir"]
+script = ExtResource("1_3ak7e")
+speaker = "CALEB"
+text = "The intention was noble, but the consequences... We hadn't envisaged such a scenario."
+
+[sub_resource type="Resource" id="Resource_c1xx8"]
+script = ExtResource("1_3ak7e")
+speaker = "CALEB"
+text = "Now we have to face reality, Ava. It's our duty to find a way to rectify this, as much as possible."
+
+[resource]
+script = ExtResource("2_ybuwh")
+dialog_entries = Array[ExtResource("1_3ak7e")]([SubResource("Resource_olebj"), SubResource("Resource_ysaya"), SubResource("Resource_sboir"), SubResource("Resource_c1xx8")])

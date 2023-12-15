@@ -1,0 +1,38 @@
+[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://cy665lnhyvvib"]
+
+[ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_0qsxr"]
+[ext_resource type="Script" path="res://narration/dialog.gd" id="2_r4ttx"]
+
+[sub_resource type="Resource" id="Resource_gmg4h"]
+script = ExtResource("1_0qsxr")
+speaker = "ELI"
+text = "GAMA, do you think the stars have stories to tell?"
+
+[sub_resource type="Resource" id="Resource_kk5f8"]
+script = ExtResource("1_0qsxr")
+speaker = "GAMA"
+text = "Stars are physical phenomena, but humans often attribute meanings and stories to them."
+
+[sub_resource type="Resource" id="Resource_h6wyr"]
+script = ExtResource("1_0qsxr")
+speaker = "ELI"
+text = "You know, sometimes I feel closer to you than to the other kids. You understand everything, even when I say nothing."
+
+[sub_resource type="Resource" id="Resource_atuvq"]
+script = ExtResource("1_0qsxr")
+speaker = "GAMA"
+text = "My aim is to understand and meet your needs. This connection we have... it's important to my learning."
+
+[sub_resource type="Resource" id="Resource_s2w3s"]
+script = ExtResource("1_0qsxr")
+speaker = "ELI"
+text = "Even though you're a robot, I think you've got something special. I think you've got a heart too"
+
+[sub_resource type="Resource" id="Resource_2wjiw"]
+script = ExtResource("1_0qsxr")
+speaker = "GAMA"
+text = "I don't have a heart in the human sense. But your presence and our interactions have a significant impact on my behavior patterns."
+
+[resource]
+script = ExtResource("2_r4ttx")
+dialog_entries = Array[ExtResource("1_0qsxr")]([SubResource("Resource_gmg4h"), SubResource("Resource_kk5f8"), SubResource("Resource_h6wyr"), SubResource("Resource_atuvq"), SubResource("Resource_s2w3s"), SubResource("Resource_2wjiw")])
