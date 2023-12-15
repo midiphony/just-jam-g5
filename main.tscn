@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cjmwlrgvgc6im"]
+[gd_scene load_steps=18 format=3 uid="uid://cjmwlrgvgc6im"]
 
 [ext_resource type="TileSet" uid="uid://cpik1el0xvc71" path="res://abstract_platformer_tuto/old_tile_set.tres" id="1_mnu0x"]
 [ext_resource type="PackedScene" uid="uid://c46aunm5hx3d" path="res://player.tscn" id="2_p74tl"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c7gpu2uxptmul" path="res://narration/dialog_item.tscn" id="14_1db6g"]
 [ext_resource type="PackedScene" uid="uid://dh6qqwd0qc51e" path="res://ui/move_skill_selection_ui.tscn" id="14_ioiyo"]
 [ext_resource type="PackedScene" uid="uid://cr17n4vl73kkc" path="res://ui/hud.tscn" id="15_qvi63"]
+[ext_resource type="Texture2D" uid="uid://bciee5a57uglf" path="res://art/generic_items/book_1.png" id="15_umsun"]
 
 [node name="Main" type="Node"]
 
@@ -84,6 +85,9 @@ texture = ExtResource("10_4m1dh")
 [node name="dialogItem" parent="MainLevel" instance=ExtResource("14_1db6g")]
 position = Vector2(350, 159)
 
+[node name="Sprite2D" parent="MainLevel/dialogItem" index="0"]
+texture = ExtResource("15_umsun")
+
 [node name="UI" type="CanvasLayer" parent="."]
 
 [node name="MoveSkillSelectionUi" parent="UI" node_paths=PackedStringArray("player") instance=ExtResource("14_ioiyo")]
@@ -100,3 +104,4 @@ autoplay = true
 [editable path="MainLevel/ability"]
 [editable path="MainLevel/ability2"]
 [editable path="MainLevel/ability3"]
+[editable path="MainLevel/dialogItem"]
