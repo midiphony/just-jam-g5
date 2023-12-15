@@ -29,15 +29,24 @@ func _on_player_restart():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	# For safety
+	if visible:
+		player.can_move = false
+	
 	if _has_selected_skill:
 		var has_added_skill := false
+		var previously_equipped_skill : MoveSkill
+		
 		if Input.is_action_just_pressed("ui_up"):
+			previously_equipped_skill = player.move_skill_key_up
 			player.move_skill_key_up = selected_skill
 			has_added_skill = true
 		elif Input.is_action_just_pressed("ui_right"):
+			previously_equipped_skill = player.move_skill_key_right
 			player.move_skill_key_right = selected_skill
 			has_added_skill = true
 		elif player.is_move_skill_left_unlocked and Input.is_action_just_pressed("ui_left"):
+			previously_equipped_skill = player.move_skill_key_left
 			player.move_skill_key_left = selected_skill
 			has_added_skill = true
 		
@@ -45,6 +54,10 @@ func _process(delta):
 			player.available_skills.erase(selected_skill)
 			selection_feedback.texture = select_texture
 			_has_selected_skill = false
+			
+			if previously_equipped_skill != null:
+				player.available_skills.append(previously_equipped_skill)
+			
 			_reset_ui()
 	
 	else:

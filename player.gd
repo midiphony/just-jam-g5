@@ -51,8 +51,7 @@ func _process(delta):
 		return
 	
 	if Input.is_action_just_pressed("restart"):
-		global_position = start_position
-		has_restarted.emit()
+		restart()
 	
 	## Enable simple movements by uncommenting below code
 	#_process_basic_movement(delta)
@@ -136,7 +135,7 @@ func _process(delta):
 				tween.tween_property(self, "scale", Vector2.ZERO, 0.5)
 				tween.tween_callback(
 					func(): 
-						global_position = original_position
+						restart()
 						scale = Vector2.ONE
 				)
 				break
@@ -154,6 +153,10 @@ func _process(delta):
 
 
 enum CellType { VALID, BLOCKER, VOID }
+
+func restart():
+	global_position = start_position
+	has_restarted.emit()
 
 func get_tile_coords_from_global_position(some_global_position : Vector2) -> Vector2i:
 	return tilemap.local_to_map(tilemap.to_local(some_global_position))
