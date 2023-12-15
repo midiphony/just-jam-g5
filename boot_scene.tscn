@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://cv1gwn1qsokr7"]
+
+[ext_resource type="Script" path="res://boot_scene.gd" id="1_1ipqw"]
+[ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="1_lujvx"]
+[ext_resource type="PackedScene" uid="uid://cjmwlrgvgc6im" path="res://main.tscn" id="2_yivxk"]
+
+[node name="BootScene" type="Node"]
+script = ExtResource("1_1ipqw")
+main_scene = ExtResource("2_yivxk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lujvx")
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 225.0
+offset_top = 71.0
+offset_right = -223.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Memory System Initialization of GAMA
+GAMA System: \"Initiating memory recovery protocol. Data integrity check in progress...\"
+
+-
+Several memory segments are missing or damaged…
+
+-
+Identifying potential sites for data recovery…
+-
+
+Initialization complete. Recovery of missing memory fragments is necessary for a full reconstitution. Preparing for exploration to locate missing data.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
