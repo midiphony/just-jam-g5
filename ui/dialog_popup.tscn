@@ -86,3 +86,16 @@ offset_bottom = 247.0
 grow_horizontal = 2
 grow_vertical = 2
 expand_mode = 3
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.722
+anchor_right = 1.0
+anchor_bottom = 0.176
+offset_left = -24.7441
+offset_top = 7.0
+offset_right = -25.0
+offset_bottom = -84.048
+grow_horizontal = 0
+text = "Press Enter to read the rest of the dialogs"
