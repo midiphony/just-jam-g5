@@ -6,3 +6,5 @@ class_name Dialog
 
 @export var rewards_text: String
 @export var image: Texture2D
+
+@export var title: String
