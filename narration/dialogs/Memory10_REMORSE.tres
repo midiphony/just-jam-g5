@@ -31,3 +31,4 @@ rewards = ""
 script = ExtResource("2_ybuwh")
 dialog_entries = Array[ExtResource("1_3ak7e")]([SubResource("Resource_olebj"), SubResource("Resource_ysaya"), SubResource("Resource_sboir"), SubResource("Resource_c1xx8")])
 rewards_text = ""
+title = "REMORSE"

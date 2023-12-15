@@ -55,3 +55,4 @@ rewards = ""
 script = ExtResource("2_h4qft")
 dialog_entries = Array[ExtResource("1_xll28")]([SubResource("Resource_th1h7"), SubResource("Resource_lgig6"), SubResource("Resource_eo3vq"), SubResource("Resource_nx6qs"), SubResource("Resource_dm4li"), SubResource("Resource_7pxem"), SubResource("Resource_u6xgm"), SubResource("Resource_4qk4o")])
 rewards_text = ""
+title = "GAMA"

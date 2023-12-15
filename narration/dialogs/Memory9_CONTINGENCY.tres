@@ -37,3 +37,4 @@ rewards = ""
 script = ExtResource("2_mht1g")
 dialog_entries = Array[ExtResource("1_88qxy")]([SubResource("Resource_xy7ee"), SubResource("Resource_s5thv"), SubResource("Resource_vkhf0"), SubResource("Resource_qcfsy"), SubResource("Resource_lmvyn")])
 rewards_text = ""
+title = "CONTINGENCY"

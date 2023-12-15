@@ -25,3 +25,4 @@ rewards = ""
 script = ExtResource("2_indvf")
 dialog_entries = Array[ExtResource("1_pkyi2")]([SubResource("Resource_b6ny6"), SubResource("Resource_ml0dy"), SubResource("Resource_26rsi")])
 rewards_text = ""
+title = "XYLOPH-3"

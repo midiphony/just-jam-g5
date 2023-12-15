@@ -31,3 +31,4 @@ rewards = ""
 script = ExtResource("2_h5clk")
 dialog_entries = Array[ExtResource("1_nvl6l")]([SubResource("Resource_kvmif"), SubResource("Resource_lk6nd"), SubResource("Resource_v373x"), SubResource("Resource_lku8g")])
 rewards_text = ""
+title = "PLAYFUL ANOMALY"

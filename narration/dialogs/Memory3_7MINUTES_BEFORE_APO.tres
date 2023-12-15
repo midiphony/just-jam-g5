@@ -1,47 +1,44 @@
-[gd_resource type="Resource" script_class="Dialog" load_steps=10 format=3 uid="uid://djoae7hg7illl"]
+[gd_resource type="Resource" script_class="Dialog" load_steps=9 format=3 uid="uid://djoae7hg7illl"]
 
 [ext_resource type="Script" path="res://narration/dialog_entry.gd" id="1_uwllx"]
-[ext_resource type="Texture2D" uid="uid://c8j4rnpjcidbo" path="res://art/PhotoFamilleSansRobot_1.png" id="2_28otl"]
 [ext_resource type="Script" path="res://narration/dialog.gd" id="2_avgjp"]
 
-[sub_resource type="Resource" id="Resource_qdtnf"]
+[sub_resource type="Resource" id="Resource_qymqi"]
 script = ExtResource("1_uwllx")
 speaker = "CALEB"
 text = "GAMA, listen to me! We only have a few seconds left with Ava. You have to protect Eli, that's all that matters now!"
 rewards = ""
 
-[sub_resource type="Resource" id="Resource_ppmx5"]
+[sub_resource type="Resource" id="Resource_4haq4"]
 script = ExtResource("1_uwllx")
 speaker = "GAMA"
 text = "There's no logic in this feeling, but I feel... a responsibility that goes beyond my programming."
 rewards = ""
 
-[sub_resource type="Resource" id="Resource_0qmaa"]
+[sub_resource type="Resource" id="Resource_fqcth"]
 script = ExtResource("1_uwllx")
 speaker = "AVA"
 text = "There's no time. In a few minutes we won't be here. Please take care of our son, you're all he has left."
 rewards = ""
 
-[sub_resource type="Resource" id="Resource_k2al2"]
+[sub_resource type="Resource" id="Resource_uitex"]
 script = ExtResource("1_uwllx")
 speaker = "GAMA"
 text = "I'm all he has left? . I'll do it. With everything I've learned... and felt with you."
 rewards = ""
 
-[sub_resource type="Resource" id="Resource_rol7y"]
+[sub_resource type="Resource" id="Resource_o1ydc"]
 script = ExtResource("1_uwllx")
 speaker = "SYSTEM ANOMALY"
 text = "Environmental data analysis completed. An archived memory has been geolocated. Position: 8 kilometers south of the lake identified on the sector map."
 rewards = ""
 
-[sub_resource type="Resource" id="Resource_armuj"]
-script = ExtResource("1_uwllx")
-speaker = "PLACEHOLDER"
-text = "PHOTO FAMILLE"
-rewards = ""
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_40mff"]
+load_path = "res://.godot/imported/PhotoFamilleSansRobot_1.png-7490c6735d410e4435cdc2b8db46bdce.ctex"
 
 [resource]
 script = ExtResource("2_avgjp")
-dialog_entries = Array[ExtResource("1_uwllx")]([SubResource("Resource_qdtnf"), SubResource("Resource_ppmx5"), SubResource("Resource_0qmaa"), SubResource("Resource_k2al2"), SubResource("Resource_rol7y"), SubResource("Resource_armuj")])
-rewards_text = "You unlocked a new move pattern."
-image = ExtResource("2_28otl")
+dialog_entries = Array[ExtResource("1_uwllx")]([SubResource("Resource_qymqi"), SubResource("Resource_4haq4"), SubResource("Resource_fqcth"), SubResource("Resource_uitex"), SubResource("Resource_o1ydc")])
+rewards_text = "GAMA motricity restored. New move pattern can be equiped next to the campfire. "
+image = SubResource("CompressedTexture2D_40mff")
+title = "7 MINUTES BEFORE THE APOCALYPSE"

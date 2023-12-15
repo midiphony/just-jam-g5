@@ -37,3 +37,4 @@ rewards = ""
 script = ExtResource("2_u5m74")
 dialog_entries = Array[ExtResource("1_pdlda")]([SubResource("Resource_bkkbk"), SubResource("Resource_l02ua"), SubResource("Resource_gnjid"), SubResource("Resource_lr6fd"), SubResource("Resource_ycc42")])
 rewards_text = ""
+title = "IS THIS WHAT YOU CALL GRIEF?"

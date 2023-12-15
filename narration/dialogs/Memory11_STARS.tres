@@ -43,3 +43,4 @@ rewards = ""
 script = ExtResource("2_r4ttx")
 dialog_entries = Array[ExtResource("1_0qsxr")]([SubResource("Resource_gmg4h"), SubResource("Resource_kk5f8"), SubResource("Resource_h6wyr"), SubResource("Resource_atuvq"), SubResource("Resource_s2w3s"), SubResource("Resource_2wjiw")])
 rewards_text = ""
+title = "THE STARS HAVE STORIES"

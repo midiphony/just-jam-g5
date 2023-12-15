@@ -60,4 +60,5 @@ rewards = ""
 [resource]
 script = ExtResource("2_lklsg")
 dialog_entries = Array[ExtResource("1_j8g0p")]([SubResource("Resource_nx2r7"), SubResource("Resource_yc53t"), SubResource("Resource_x1jrt"), SubResource("Resource_g3eus"), SubResource("Resource_cuolp"), SubResource("Resource_viujd"), SubResource("Resource_jaiav"), SubResource("Resource_fur6i"), SubResource("Resource_q8rft")])
-rewards_text = "You unlocked a new move pattern, and the ability to equip a 3rd move pattern."
+rewards_text = "GAMA motricity restored. Three patterns can be equiped at the same time. New move pattern can be equiped next to the campfire."
+title = "ELI WINSTER"

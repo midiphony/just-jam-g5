@@ -25,3 +25,4 @@ rewards = ""
 script = ExtResource("2_dhtot")
 dialog_entries = Array[ExtResource("1_ybh23")]([SubResource("Resource_wgmho"), SubResource("Resource_t2qe3"), SubResource("Resource_4wevn")])
 rewards_text = ""
+title = "7 MONTHS PRIOR THE APOCALYPSE"
