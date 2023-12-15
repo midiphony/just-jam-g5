@@ -15,6 +15,8 @@ class_name DialogPopup
 @onready var rewards_label := $RewardsLabel
 @onready var image := $Image
 
+@onready var popup_title := $Title
+
 var entry_format_string = "> %s : %s\n"
 
 var last_entry_index := -1
@@ -32,6 +34,11 @@ func set_up_dialog(dialog : Dialog):
 		image.texture = dialog_data.image
 	else:
 		image.texture = null
+	
+	if dialog_data.title != null:
+		popup_title.text = dialog_data.title
+	else:
+		popup_title.text = ""
 	
 	
 	text_label.text = ""
