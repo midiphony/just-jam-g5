@@ -9,6 +9,8 @@ extends Control
 
 @onready var selection_feedback := %SelectionFeedback
 
+@onready var equip_sound := $EquipmentSound
+
 var _has_selected_skill:bool
 var selected_skill:MoveSkill
 
@@ -51,6 +53,7 @@ func _process(delta):
 			has_added_skill = true
 		
 		if has_added_skill:
+			equip_sound.play()
 			player.available_skills.erase(selected_skill)
 			selection_feedback.texture = select_texture
 			_has_selected_skill = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dh6qqwd0qc51e"]
+[gd_scene load_steps=10 format=3 uid="uid://dh6qqwd0qc51e"]
 
 [ext_resource type="Script" path="res://ui/move_skill_selection_ui.gd" id="1_klal1"]
 [ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="2_w34xc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://1uvriiamnvnp" path="res://art/movement_box/8 bas.png" id="3_c0u3u"]
 [ext_resource type="Texture2D" uid="uid://o02meedmn8gb" path="res://art/movement_box/Touche echap.png" id="3_pqitl"]
 [ext_resource type="Texture2D" uid="uid://chk668d6ksvpo" path="res://art/movement_box/Select.png" id="5_rs178"]
+[ext_resource type="AudioStream" uid="uid://b2utw0tvxuh02" path="res://audio/EquipementMove1.wav" id="7_vooyf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jqbtr"]
 font_size = 71
@@ -134,3 +135,6 @@ text = "> Select with ENTER
 then assign a movement pattern to one of your key"
 label_settings = SubResource("LabelSettings_fcydm")
 autowrap_mode = 1
+
+[node name="EquipmentSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_vooyf")

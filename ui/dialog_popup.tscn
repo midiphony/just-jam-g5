@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dlrq0nq83bqjr"]
+[gd_scene load_steps=8 format=3 uid="uid://dlrq0nq83bqjr"]
 
 [ext_resource type="Script" path="res://ui/dialog_popup.gd" id="1_6dbrb"]
 [ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="1_ta6e6"]
 [ext_resource type="Resource" uid="uid://c0a2wiy6dq4ue" path="res://narration/dialogs/DialogTest.tres" id="2_asb8f"]
 [ext_resource type="PackedScene" uid="uid://cts7u5ju0ced0" path="res://ui/end_screen.tscn" id="3_jux70"]
+[ext_resource type="AudioStream" uid="uid://bgni5jttphpv2" path="res://audio/Reward1.ogg" id="5_amg1h"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_4m5e3"]
 font_size = 25
@@ -113,3 +114,6 @@ offset_right = -25.0
 offset_bottom = -84.048
 grow_horizontal = 0
 text = "Press Enter to read the rest of the dialogs"
+
+[node name="RewardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_amg1h")
