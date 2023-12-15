@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dlrq0nq83bqjr"]
+[gd_scene load_steps=5 format=3 uid="uid://dlrq0nq83bqjr"]
 
 [ext_resource type="Script" path="res://ui/dialog_popup.gd" id="1_6dbrb"]
 [ext_resource type="Texture2D" uid="uid://n27hkkdgsmf7" path="res://art/white_2x2.png" id="1_ta6e6"]
+[ext_resource type="Resource" uid="uid://c0a2wiy6dq4ue" path="res://narration/dialogs/DialogTest.tres" id="2_asb8f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0hrec"]
 line_spacing = 2.0
@@ -17,6 +18,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6dbrb")
+dialog_data = ExtResource("2_asb8f")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 modulate = Color(0.411765, 0.411765, 0.411765, 0.388235)
