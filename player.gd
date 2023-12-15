@@ -36,6 +36,9 @@ func _ready():
 	if tilemap == null:
 		printerr("LEVEL TILEMAP HAS NOT BEEN ASSIGNED TO THE PLAYER")
 	
+	# hide debug layer
+	tilemap.set_layer_modulate(2, Color.TRANSPARENT)
+	
 	tilemap_cell_size = tilemap.tile_set.tile_size.x
 	
 	# Center player on the tile he is over
@@ -167,6 +170,10 @@ func get_tile_coords_from_global_position(some_global_position : Vector2) -> Vec
 
 func get_cell_type(tile_coords : Vector2i) -> CellType:
 	var tiledata : TileData = tilemap.get_cell_tile_data(0, tile_coords)
+	
+	var debug_tile_data := tilemap.get_cell_tile_data(2, tile_coords)
+	if debug_tile_data != null:
+		tiledata = debug_tile_data
 	
 	if tiledata == null:
 		return CellType.VOID

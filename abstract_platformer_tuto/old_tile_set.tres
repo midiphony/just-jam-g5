@@ -1,7 +1,8 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://cpik1el0xvc71"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://cpik1el0xvc71"]
 
 [ext_resource type="Texture2D" uid="uid://ckfxci004eg53" path="res://abstract_platformer_tuto/kenney_abstract_platformer/tilesheet_complete.png" id="1_6vgfa"]
 [ext_resource type="Texture2D" uid="uid://b470hip1qrs6w" path="res://art/post_apo_tilesheet_x4.png" id="2_g14c0"]
+[ext_resource type="Texture2D" uid="uid://jikre2q7ye8x" path="res://art/game_tiles.png" id="2_s5kpn"]
 [ext_resource type="Texture2D" uid="uid://ckykwuuy7763g" path="res://art/1_bit_pirate_tilesheet.png" id="3_eoww0"]
 [ext_resource type="Texture2D" uid="uid://dptx6duksh0u0" path="res://art/medieval_tilesheet.png" id="4_17c8w"]
 
@@ -865,6 +866,24 @@ texture_region_size = Vector2i(64, 64)
 6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:6/0/physics_layer_0/angular_velocity = 0.0
 6:6/0/custom_data_1 = true
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7q7tm"]
+texture = ExtResource("2_s5kpn")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/custom_data_0 = true
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/custom_data_1 = true
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qk84x"]
 texture = ExtResource("2_g14c0")
@@ -4956,3 +4975,4 @@ sources/0 = SubResource("TileSetAtlasSource_lvm4p")
 sources/2 = SubResource("TileSetAtlasSource_qk84x")
 sources/3 = SubResource("TileSetAtlasSource_7yle6")
 sources/5 = SubResource("TileSetAtlasSource_i1w3j")
+sources/1 = SubResource("TileSetAtlasSource_7q7tm")
